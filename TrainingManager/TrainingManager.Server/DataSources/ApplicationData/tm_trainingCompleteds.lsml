@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="tm_trainingCompleted">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Completed Trainings" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="tm_training"
+        Association="tm_trainingCompleted_tm_training"
+        FromEnd="tm_trainingCompleted"
+        ToEnd="tm_training">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Training" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <EntityProperty
+        Name="start_date"
+        PropertyType=":Date">
+        <EntityProperty.Attributes>
+          <Required />
+          <DisplayName
+            Value="Start Date" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="end_date"
+        PropertyType=":Date">
+        <EntityProperty.Attributes>
+          <Required />
+          <DisplayName
+            Value="End Date" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="training_venue"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Training Venue" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="tm_lu_country"
+        Association="tm_trainingCompleted_tm_lu_country"
+        FromEnd="tm_trainingCompleted"
+        ToEnd="tm_lu_country">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Country" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="tm_trainingParticipants"
+        Association="tm_trainingCompleted_tm_trainingParticipant"
+        FromEnd="tm_trainingCompleted"
+        ToEnd="tm_trainingParticipant">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Participants" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <Hidden />
+          <UseForConcurrency />
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="tm_trainingCompleteds"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="tm_trainingCompleted" />
+    <QueryOperation
+      Name="tm_trainingCompleteds_Single"
+      ReturnType="tm_trainingCompleted">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="tm_trainingCompleteds" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="tm_trainingCompleteds_SingleOrDefault"
+      ReturnType="tm_trainingCompleted">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="tm_trainingCompleteds" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="tm_trainingCompleted_tm_trainings"
+      Association="tm_trainingCompleted_tm_training">
+      <AssociationSetEnd
+        Name="tm_trainingCompleted"
+        EntitySet="tm_trainingCompleteds" />
+      <AssociationSetEnd
+        Name="tm_training"
+        EntitySet="tm_trainings" />
+    </AssociationSet>
+    <AssociationSet
+      Name="tm_trainingCompleted_tm_trainingParticipants"
+      Association="tm_trainingCompleted_tm_trainingParticipant">
+      <AssociationSetEnd
+        Name="tm_trainingCompleted"
+        EntitySet="tm_trainingCompleteds" />
+      <AssociationSetEnd
+        Name="tm_trainingParticipant"
+        EntitySet="tm_trainingParticipants" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="tm_trainingCompleteds">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="tm_trainingCompleted_tm_lu_country"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Id"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="tm_trainingCompleted_tm_lu_country1"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="tm_trainingCompleted_tm_trainingParticipants">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="tm_trainingCompleted_tm_trainingParticipants" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[tm_trainingCompleted_tm_trainingParticipants]/Members[tm_trainingCompleted]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[tm_trainingCompleted_tm_trainingParticipants]/Members[tm_trainingParticipant]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="tm_trainingCompleted_tm_trainingParticipant" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="tm_trainingCompleted_tm_trainingParticipant">
+    <AssociationEnd
+      Name="tm_trainingCompleted"
+      Multiplicity="One"
+      EntityType="tm_trainingCompleted">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="tm_trainingParticipant"
+      Multiplicity="Many"
+      EntityType="tm_trainingParticipant" />
+  </Association>
+</ServiceApplication>

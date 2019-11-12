@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.TrainingManager.html" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AppUsers" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AuditExclude" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AuditTrail" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_lu_country" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_lu_divisionSection" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_lu_employee" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingCompleted" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingParticipant" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_training" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Proxy
+        Target="ServiceInterface:ApplicationData" />
+    </EntityContainer.Attributes>
+  </EntityContainer>
+  <Association
+    Name="tm_trainingCompleted_tm_lu_country">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingCompleted_tm_lu_country" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="tm_trainingParticipant_tm_lu_employee">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingParticipant_tm_lu_employee" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="tm_trainingCompleted_tm_trainingParticipant">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingCompleted_tm_trainingParticipant" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="tm_trainingCompleted_tm_training">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:tm_trainingCompleted_tm_training" />
+    </Association.Attributes>
+  </Association>
+</Application>
